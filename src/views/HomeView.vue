@@ -25,6 +25,7 @@ export default {
   @media only screen and (min-width: 0) {
     margin: 0 100px;
     background-color: white;
+    border-radius: 10px;
 
     h1 {
       font-family: Arial, Helvetica, sans-serif;

@@ -4,7 +4,9 @@
         <ul>
             <li v-for="product in products" :key="products.id">
                 <h2>{{ product.id }}. {{ product.title }}</h2>
-                <p>{{ product.description }}</p>
+                <img class="product-image" :src="product.image" alt="bouquette" />
+                <p class="product-description">{{ product.description }}</p>
+                <span>{{ product.price }} USD</span>
             </li>
         </ul>
     </div>
@@ -33,17 +35,32 @@ export default {
     @media only screen and (min-width: 0) {
         margin: 0 100px;
         background-color: white;
+        border-radius: 10px;
 
         h2 {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 20px;
         }
-        p {
+        .product.description {
             margin: 0 20px;
             padding: 0 30px;
             line-height: 1.5;
             font-family: Georgia, 'Times New Roman', Times, serif;
             font-size: 17px;
+        }
+        .product-image {
+            width: 220px;
+            height: 270px;
+            border-radius: 15px;
+        }
+        li {
+            margin: 20px;
+            padding: 10px;
+        }
+        span {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 15px;
+            font-weight: bold;
         }
     }
 }
