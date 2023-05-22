@@ -1,50 +1,38 @@
 <template>
   <div id="app">
-    <nav>
-      <router-link to="/">Home</router-link>
-      <router-link to="/products">Products</router-link>
-      <router-link to="/about">About</router-link> 
-      <router-link to="/contact">Contact</router-link>
-    </nav>
+    <NavBar />
     <router-view/>
+    <FooterBar />
   </div>
 </template>
 
+<script>
+import NavBar from './components/NavBar.vue';
+import FooterBar from './components/FooterBar.vue';
+
+export default {
+  name: 'App', 
+  components: {
+    NavBar,
+    FooterBar
+  }
+}
+</script>
+
 <style lang="scss">
 #app {
+  min-height: 100%;
+  width: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   font-family: Avenir, Helvetica, Arial, sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   text-align: center;
   color: #000000;
-}
-
-body, html {
-  margin: 0;
-  padding: 0;
-}
-
-ul, li {
-  list-style-type: none;
-}
-
-nav {
-  padding: 20px;
-  background-color: #000000;
-  display: flex;
-  justify-content: space-around;
-  flex-direction: row;
-
-  a {
-    font-weight: bold;
-    font-size: 18px;
-    color: #ffffff;
-    text-decoration: none;
-
-    &.router-link-exact-active {
-      color: #f01212;
-      text-decoration: underline;
-    }
+  main {
+    flex: 1 0 auto;
   }
 }
 </style>
