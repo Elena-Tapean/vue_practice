@@ -7,7 +7,7 @@
     <strong>Be careful!</strong>
     <p>Cats are sensitive to certain plants and flowers. Find out which of them are toxic for your kitties by clicking <a href="https://be.chewy.com/which-plants-are-poisonous-to-cats-a-complete-guide/" target="_blank">here</a>!</p>
     <h2>Fresh bouquettes</h2>
-    <router-link to="/products">Shop here</router-link>
+    <router-link class="shop" to="/products">Shop here</router-link>
   </div>
 </template>
 
@@ -54,6 +54,15 @@ export default {
     h2 {
       font-family: Arial, Helvetica, sans-serif;
       font-size: 20px;
+    }
+    .shop {
+      text-decoration: underline;
+      color: fuchsia;
+      font-family: Georgia, 'Times New Roman', Times, serif;
+      font-size: 20px;
+    }
+    .shop:hover {
+      text-decoration: none;
     }
   }
 }

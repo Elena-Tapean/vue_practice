@@ -3,6 +3,7 @@
         <nav>
             <router-link to="/">Home</router-link>
             <router-link to="/products">Products</router-link>
+            <router-link to="/basket">Basket ({{ basketTotal }})</router-link>
             <router-link to="/about">About</router-link> 
             <router-link to="/contact">Contact</router-link>
         </nav>    
@@ -11,18 +12,32 @@
 
 <script>
 export default {
-    name: 'NavBar'
+    name: 'NavBar',
+    data () {
+        return {
+        }
+    },
+    created () {
+        this.$store.dispatch('data')
+    },
+    computed: {
+        products () {
+            return this.$store.state.products
+        },
+        basket () {
+            return this.$store.state.basket
+        },
+        basketTotal () {
+            return this.basket.length
+            //return this.basket.reduce((acc, curr) => acc + curr.count, 0)
+        }
+    }
 }
 </script>
 
 <style scoped lang="scss">
 .nav-bar {
     @media only screen and (min-width: 0) {
-        img {
-            width: 28px;
-            height: 28px;
-            border-radius: 50%;
-        }
         nav {
             padding: 20px;
             background-color: #000000;

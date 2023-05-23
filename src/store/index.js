@@ -6,7 +6,8 @@ Vue.use(Vuex)
 export default new Vuex.Store({
   state: {
     products: [],
-    productsCopy: []
+    productsCopy: [],
+    basket: []
   },
   getters: {
   },
@@ -14,6 +15,16 @@ export default new Vuex.Store({
     SET_PRODUCTS (state, data) {
       state.products = data
       state.productsCopy = [...data]
+    },
+    ADD_TO_BASKET (state, product) {
+      state.basket.push(product)
+    },
+    BUY_PRODUCT (state, product) {
+      state.basket.buy(product)
+    },
+    DELETE_PRODUCT (state, {id}) {
+      const index = state.basket.findIndex(product => +product.id === +id)
+      state.basket.splice(index, 1)
     }
   },
   actions: {
@@ -37,20 +48,6 @@ export default new Vuex.Store({
             },
             {
               id: 3,
-              image: require('../assets/poppy.jpg'),
-              title: 'Poppy',
-              description: 'Spring flowers reminding you of the dear ol\' countryside',
-              price: 5
-            },
-            {
-              id: 4,
-              image: require('../assets/chamomile.jpg'),
-              title: 'Chamomile',
-              description: 'Spring and Summer flowers giving you comfort and ailing your pains',
-              price: 15
-            },
-            {
-              id: 5,
               image: require('../assets/hyacinth.jpg'),
               title: 'Hyacinth',
               description: 'Spring flowers aiding you with its therapeutic perfume and joyful colors',

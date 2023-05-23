@@ -7,6 +7,8 @@
                 <img class="product-image" :src="product.image" alt="bouquette" />
                 <p class="product-description">{{ product.description }}</p>
                 <span>{{ product.price }} USD</span>
+                <br/>
+                <button v-on:click="addToBasket(product)">Buy</button>
             </li>
         </ul>
     </div>
@@ -25,6 +27,11 @@ export default {
     computed: {
         products () {
             return this.$store.state.products
+        }
+    },
+    methods: {
+        addToBasket (product) {
+            this.$store.commit('ADD_TO_BASKET', product);
         }
     }
 }
@@ -61,6 +68,16 @@ export default {
             font-family: Arial, Helvetica, sans-serif;
             font-size: 15px;
             font-weight: bold;
+        }
+        button {
+            margin: 7px;
+            padding: 8px 20px;
+            border-radius: 5px;
+            background-color: rgb(26, 170, 91);
+            color: white;
+            border: none;
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 16px;
         }
     }
 }

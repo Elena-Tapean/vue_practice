@@ -33,6 +33,20 @@ const routes = [
     component: function () {
       return import('../views/ProductsView.vue')
     }
+  },
+  {
+    path: '/basket',
+    name: 'basket',
+    component: function () {
+      return import('../views/BasketView.vue')
+    }
+  },
+  {
+    path: '*',
+    name: 'Error',
+    component: function () {
+      return import('../views/ErrorView.vue')
+    }
   }
 ]
 
