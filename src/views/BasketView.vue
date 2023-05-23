@@ -6,10 +6,12 @@
                 <h2>{{ product.title }}</h2>
                 <img class="product-image" :src="product.image" alt="bouquettes" />
                 <br/>
-                <button class="buy" v-on:click="buyItem(item)">Buy</button>
-                <button class="delete" v-on:click="deleteItem(item)">Delete</button>
+                <span>{{ product.price }} USD</span>
             </li>
         </ul>
+        <button class="buy" v-on:click="buyProduct(product)">Buy</button>
+        <button class="delete" v-on:click="deleteProduct(product)">Delete</button>
+        <br/>
         <span>Total: {{ basketTotal }} USD</span>
     </div>
 </template>
@@ -36,10 +38,10 @@ export default {
         }
     },
     methods: {
-        buyItem () {
+        buyProduct () {
             this.$store.dispatch('BUY_PRODUCT', this.user)
         },
-        deleteItems (id) {
+        deleteProduct (id) {
             this.$store.commit('DELETE_PRODUCT', {id})
         }
     }
