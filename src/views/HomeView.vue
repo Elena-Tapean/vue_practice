@@ -4,8 +4,10 @@
     <h1>New flower found</h1>
     <p>A rare purple flower is reported to have been sighted inside an ametyst crystal. Images of this magnificent flower are impossible to take due to the fact that the cave is lowly lid and the terrain is dangerous. We will keep you up to date on the rare flower.</p>
     <br/>
-    <strong>Attention!</strong>
+    <strong>Be careful!</strong>
     <p>Cats are sensitive to certain plants and flowers. Find out which of them are toxic for your kitties by clicking <a href="https://be.chewy.com/which-plants-are-poisonous-to-cats-a-complete-guide/" target="_blank">here</a>!</p>
+    <h2>Fresh bouquettes</h2>
+    <router-link to="/products">Shop here</router-link>
   </div>
 </template>
 
@@ -39,7 +41,7 @@ export default {
       font-size: 17px;
     }
     strong {
-      font-size: 20px;
+      font-size: 18px;
       color: red;
     }
     a {
@@ -48,6 +50,10 @@ export default {
     }
     a:hover {
       text-decoration: underline;
+    }
+    h2 {
+      font-family: Arial, Helvetica, sans-serif;
+      font-size: 20px;
     }
   }
 }
